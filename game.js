@@ -5,7 +5,7 @@ var render = Matter.Render.create({
   canvas: myCanvas,
   engine: engine,
   options: {
-    width: 800,
+    width: 1400,
     height: 600,
     background: '000000',
     wireframes: false,
@@ -13,7 +13,7 @@ var render = Matter.Render.create({
   }
 });
 
-var ball = Matter.Bodies.circle(400, 400, 30, {
+var ball = Matter.Bodies.circle(600, 400, 30, {
   density: 0.04,
   friction: 0.01,
   frictionAir: 0.00001,
@@ -22,15 +22,35 @@ var ball = Matter.Bodies.circle(400, 400, 30, {
     fillStyle: '#F35e66',
     strokeStyle: 'black',
     lineWidth: 1,
-    // sprite: {
-    //   texture: sprite img,
-    //     height: 50,
-    //     width: 50
-    // }
   }
 });
 
-Matter.World.add(world, ball);
+var player = Matter.Bodies.circle(540, 400, 40, {
+  density: 0.001,
+  friction: 0.7,
+  frictionStatic: 0,
+  frictionAir: 0.01,
+  restitution: 0.5,
+  ground: false,
+  render: {
+    fillStyle: '#000000',
+    strokeStyle: 'black',
+    lineWidth: 1,
+    sprite: {
+      texture: 'alien.png',
+    }
+  }
+});
+
+Matter.World.add(world, [ball, player]);
+
+var keyPresses = {};
+document.body.addEventListener("keydown", function(e) {
+  keyPresses[e.keyCode] = true;
+});
+document.body.addEventListener("keyup", function(e) {
+  keyPresses[e.keyCode] = false;
+});
 
 var mouseConstraint = Matter.MouseConstraint.create(engine, { //Create Constraint
   element: myCanvas,
@@ -45,14 +65,14 @@ mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.
 mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
 Matter.World.add(world, mouseConstraint);
 
-var ceiling = Matter.Bodies.rectangle(400, 0, 800, 80, {
+var ceiling = Matter.Bodies.rectangle(800, 0, 1400, 80, {
   isStatic: true,
   render: {
     visible: true
   }
 });
 
-var floor = Matter.Bodies.rectangle(400, 600, 800, 80, {
+var floor = Matter.Bodies.rectangle(800, 600, 1400, 80, {
   isStatic: true,
   render: {
     visible: true
