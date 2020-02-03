@@ -13,7 +13,7 @@ var render = Matter.Render.create({
   }
 });
 
-engine.timing.timeScale = 0.8;
+// engine.timing.timeScale = 0.8;
 
 //Game classes below
 class Projectile{
@@ -78,6 +78,29 @@ class Fodder{
   }
 }
 
+class SlingShot2{
+  constructor(x,y,w,h,texture){
+    this.dimensions = Matter.Bodies.rectangle(x, y, w, h,{
+      density: 0.1,
+      friction: 0.7,
+      frictionStatic: 0,
+      frictionAir: 0.01,
+      restitution: 0.5,
+      ground: false,
+      render: {
+        fillStyle: '#000000',
+        strokeStyle: 'black',
+        lineWidth: 1,
+        sprite: {
+          texture: 'slingshot.jpg',
+          xScale: 0.3,
+          yScale: 0.3
+        }
+      }
+    });
+  }
+}
+
 class SlingShot {
   constructor(x,y,body){
     const options = {
@@ -86,7 +109,7 @@ class SlingShot {
         y:y
       },
       bodyB: body,
-      stiffness: 0.02,
+      stiffness: 0.04,
       length: 20,
       render: {
         fillStyle: '#000000',
@@ -107,15 +130,20 @@ class SlingShot {
 
 var ball = new Projectile(200, 600, 30).dimensions
 var slingShot = new SlingShot(200, 600, ball)
-var player = new Character(700, 400, 40, 120, 'alien.png').dimensions
+var player = new Character(1000, 400, 40, 120, 'alien.png').dimensions
+
 
 Matter.World.add(world, [
   ball, 
-  player, 
-  new Fodder(600, 400, 77, 77, 'crate.png').dimensions, 
-  new Fodder(600, 400, 77, 77, 'crate.png').dimensions,
-  new Fodder(600, 400, 77, 77, 'crate.png').dimensions, 
-  new Fodder(600, 400, 77, 77, 'crate.png').dimensions]);
+  player,
+  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(1100, 400, 77, 77, 'crate.png').dimensions, 
+  new Fodder(1100, 400, 77, 77, 'crate.png').dimensions,
+  new Fodder(1100, 400, 77, 77, 'crate.png').dimensions, 
+  new Fodder(1100, 400, 77, 77, 'crate.png').dimensions]);
 
 
 
