@@ -59,10 +59,10 @@ class Fodder{
   constructor(x,y,w,h,texture){
     this.dimensions = Matter.Bodies.rectangle(x, y, w, h,{
       density: 0.1,
-      friction: 1,
-      frictionStatic: 10,
-      frictionAir: 0.1,
-      restitution: 0,
+      friction: 2,
+      frictionStatic: 12,
+      frictionAir: 0.01,
+      restitution: 0.5,
       ground: false,
       render: {
         fillStyle: '#000000',
@@ -114,6 +114,8 @@ Matter.World.add(world, [
   player, 
   new Fodder(600, 400, 77, 77, 'crate.png').dimensions, 
   new Fodder(600, 400, 77, 77, 'crate.png').dimensions,
+  new Fodder(600, 400, 77, 77, 'crate.png').dimensions, 
+  new Fodder(600, 400, 77, 77, 'crate.png').dimensions, 
   new Fodder(600, 400, 77, 77, 'crate.png').dimensions, 
   new Fodder(600, 400, 77, 77, 'crate.png').dimensions]);
 
