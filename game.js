@@ -35,7 +35,7 @@ class Projectile{
 class Character{
   constructor(x,y,w,h,texture){
     this.dimensions = Matter.Bodies.rectangle(x, y, w, h,{
-        density: 0.01,
+        density: 0.1,
         friction: 0.7,
         frictionStatic: 0,
         frictionAir: 0.01,
@@ -139,6 +139,8 @@ myCanvas.addEventListener('mouseup', function(){
     slingShot.fly() 
   }, 100)
 })
+
+
 
 //Create 4 walls to play the game within.
 var ceiling = Matter.Bodies.rectangle(700, 0, 1400, 80, {
