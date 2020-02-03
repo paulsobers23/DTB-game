@@ -1,4 +1,5 @@
 var myCanvas = document.getElementById('world');
+let main = document.getElementById('container')
 var engine = Matter.Engine.create();
 var world = engine.world;
 var render = Matter.Render.create({
@@ -12,8 +13,6 @@ var render = Matter.Render.create({
     showAngleIndicator: true
   }
 });
-
-// engine.timing.timeScale = 0.8;
 
 //Game classes below
 class Projectile{
@@ -137,6 +136,15 @@ var mouseConstraint = Matter.MouseConstraint.create(engine, { //Create Constrain
 mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.mouse.mousewheel);
 mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
 Matter.World.add(world, mouseConstraint);
+
+Matter.Events.on(engine, 'collisionStart', function(event) {
+	// We know there was a collision so fetch involved elements
+	var aElm = event.pairs[0].bodyA.id;
+	var bElm = event.pairs[0].bodyB.id;
+	  if(aElm === 1 && bElm === 3){
+	    main.innerHTML = '<a href="https://45e6d3933dfc46a493a31d2e163329ce.vfs.cloud9.us-east-2.amazonaws.com/_static/DTB-game/index.html">Congratulations, You won! Click Me to Play Again</a>'
+	  }
+});
 
 //Allows the ball to be released 1 second after the user releases the mouse
 myCanvas.addEventListener('mouseup', function(){

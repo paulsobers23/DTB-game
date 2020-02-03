@@ -163,6 +163,17 @@ mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.
 mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
 Matter.World.add(world, mouseConstraint);
 
+
+
+Matter.Events.on(engine, 'collisionStart', function(event) {
+	// We know there was a collision so fetch involved elements
+	var aElm = event.pairs[0].bodyA.id;
+	var bElm = event.pairs[0].bodyB.id;
+	  if(aElm === 1 && bElm === 3){
+	    window.location = 'https://45e6d3933dfc46a493a31d2e163329ce.vfs.cloud9.us-east-2.amazonaws.com/_static/DTB-game/level3.html';
+	  }
+});
+
 //Allows the ball to be released 1 second after the user releases the mouse
 myCanvas.addEventListener('mouseup', function(){
   setTimeout(() => {
