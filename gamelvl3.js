@@ -124,7 +124,6 @@ Matter.World.add(world, [
   new Fodder(1100, 600, 77, 77, 'crate.png').dimensions]);
 
 
-
 var mouseConstraint = Matter.MouseConstraint.create(engine, { //Create Constraint
   element: myCanvas,
   constraint: {
