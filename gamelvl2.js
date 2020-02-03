@@ -170,7 +170,7 @@ Matter.Events.on(engine, 'collisionStart', function(event) {
 	var aElm = event.pairs[0].bodyA.id;
 	var bElm = event.pairs[0].bodyB.id;
 	  if(aElm === 1 && bElm === 3){
-	    window.location = 'https://45e6d3933dfc46a493a31d2e163329ce.vfs.cloud9.us-east-2.amazonaws.com/_static/DTB-game/level3.html';
+	    window.location = 'https://a80668b3c6264d0a82b8d37884379a1b.vfs.cloud9.us-east-2.amazonaws.com/_static/DTB-game/level3.html';
 	  }
 });
 
