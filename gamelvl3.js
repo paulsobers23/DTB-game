@@ -59,8 +59,8 @@ class Fodder{
   constructor(x,y,w,h,texture){
     this.dimensions = Matter.Bodies.rectangle(x, y, w, h,{
       density: 0.1,
-      friction: 0.7,
-      frictionStatic: 0,
+      friction: 2,
+      frictionStatic: 12,
       frictionAir: 0.01,
       restitution: 0.5,
       ground: false,

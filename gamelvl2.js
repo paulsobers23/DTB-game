@@ -59,8 +59,8 @@ class Fodder{
   constructor(x,y,w,h,texture){
     this.dimensions = Matter.Bodies.rectangle(x, y, w, h,{
       density: 0.1,
-      friction: 0.7,
-      frictionStatic: 0,
+      friction: 2,
+      frictionStatic: 12,
       frictionAir: 0.01,
       restitution: 0.5,
       ground: false,
@@ -130,16 +130,18 @@ class SlingShot {
 
 var ball = new Projectile(200, 600, 30).dimensions
 var slingShot = new SlingShot(200, 600, ball)
-var player = new Character(1000, 400, 40, 120, 'alien.png').dimensions
-
+var player = new Character(950, 400, 40, 120, 'alien.png').dimensions
 
 Matter.World.add(world, [
   ball, 
   player,
-  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
-  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
-  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
-  new Fodder(900, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(800, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(800, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(800, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(800, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(800, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(800, 600, 77, 77, 'crate.png').dimensions,
+  new Fodder(800, 600, 77, 77, 'crate.png').dimensions,
   new Fodder(1100, 400, 77, 77, 'crate.png').dimensions, 
   new Fodder(1100, 400, 77, 77, 'crate.png').dimensions,
   new Fodder(1100, 400, 77, 77, 'crate.png').dimensions, 

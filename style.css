@@ -5,4 +5,10 @@
 
 h1{
     text-align: center;
+    color:rgb(98,230,24);
+    font-style: italic;
+}
+
+body{
+    background-color: black;
 }
