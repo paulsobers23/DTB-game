@@ -164,9 +164,9 @@ mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstra
 Matter.World.add(world, mouseConstraint);
 
 
-// Fetch physics engine for our hypeDocument
+
 Matter.Events.on(engine, 'collisionStart', function(event) {
-	// We know there was a collision so fetch involved elements ...
+	// We know there was a collision so fetch involved elements
 	var aElm = event.pairs[0].bodyA.id;
 	var bElm = event.pairs[0].bodyB.id;
 	  if(aElm === 1 && bElm === 3){
