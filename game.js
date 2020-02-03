@@ -59,10 +59,10 @@ class Fodder{
   constructor(x,y,w,h,texture){
     this.dimensions = Matter.Bodies.rectangle(x, y, w, h,{
       density: 0.1,
-      friction: 0.7,
-      frictionStatic: 0,
-      frictionAir: 0.01,
-      restitution: 0.5,
+      friction: 1,
+      frictionStatic: 10,
+      frictionAir: 0.1,
+      restitution: 0,
       ground: false,
       render: {
         fillStyle: '#000000',
@@ -132,6 +132,8 @@ var mouseConstraint = Matter.MouseConstraint.create(engine, { //Create Constrain
 mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.mouse.mousewheel);
 mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
 Matter.World.add(world, mouseConstraint);
+
+
 
 //Allows the ball to be released 1 second after the user releases the mouse
 myCanvas.addEventListener('mouseup', function(){
